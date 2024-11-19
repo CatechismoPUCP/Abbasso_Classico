@@ -82,11 +82,19 @@ def main():
         st.session_state.system_prompt = system_prompt
     
     col1, col2 = st.columns(2)
-    
+
     with col1:
-        st.subheader("Testo Latino")
-        latin_text = st.text_area("Inserisci il testo latino da tradurre", height=300)
+    st.subheader("Testo Latino")
+    latin_text = st.text_area(
+        "Inserisci il testo latino da tradurre (massimo 750 caratteri)",
+        height=300,
+        max_chars=750
+    )
     
+    # Add a character counter
+    remaining_chars = 750 - len(latin_text)
+    st.caption(f"Caratteri rimanenti: {remaining_chars}")
+        
     with col2:
         st.subheader("Traduzione Italiana")
         translation_placeholder = st.empty()
