@@ -30,12 +30,12 @@ def initialize_gemini(api_key, system_prompt):
         generation_config = {
             "temperature": 0.7,
             "top_p": 0.95,
-            "top_k": 40,
+            "top_k": 1,
             "max_output_tokens": 8192,
         }
         
         model = genai.GenerativeModel(
-            model_name="gemini-1.5-pro-002",
+            model_name="gemini-1.5-pro",
             generation_config=generation_config,
             system_instruction=system_prompt,
         )
