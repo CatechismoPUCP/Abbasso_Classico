@@ -5,23 +5,27 @@ import re
 # Configure page
 st.set_page_config(page_title="Traduci il tuo testo dal Latino!", layout="wide")
 
+
+
+
 def extract_all_tagged_content(text):
     tags = {
-        'translation': '',
-        'analysis': '',
-        'latin_text': '',
-        'latin_italian_dictionary': '',
-        'latin_grammar_manual': '',
-        'italian_grammar_manual': ''
+        'traduzione': '',
+        'analisi': '',
+        'testo_latino': '',
+        'dizionario_latino_italiano': '',
+        'manuale_grammatica_italiana': ''
     }
     
     for tag in tags.keys():
+        # Rimuovi le parentesi graffe dal pattern
         pattern = f'<{tag}>(.*?)</{tag}>'
         match = re.search(pattern, text, re.DOTALL)
         if match:
             tags[tag] = match.group(1).strip()
     
     return tags
+
 
 def initialize_gemini(api_key, system_prompt):
     try:
@@ -113,33 +117,21 @@ def main():
                     for chunk in st.session_state.chat_session.send_message(latin_text, stream=True):
                         full_response += chunk.text
                         current_tags = extract_all_tagged_content(full_response)
-                        translation_area.markdown(current_tags['translation'] + "▌")
+                        translation_area.markdown(current_tags['traduzione'] + " ") # Cambiato da 'translation' a 'traduzione'
                         progress_text.text("Traduzione in corso...")
                     
                     progress_text.empty()
-                    translation_area.markdown(current_tags['translation'])
+                    translation_area.markdown(current_tags['traduzione']) # Cambiato da 'translation' a 'traduzione'
                     
                     # Create expandable sections for each tag
                     with st.expander("📚 Analisi Grammaticale"):
-                        if current_tags['analysis']:
-                            st.markdown(current_tags['analysis'])
-                    
-                    with st.expander("📖 Dizionario Latino-Italiano"):
-                        if current_tags['latin_italian_dictionary']:
-                            st.markdown(current_tags['latin_italian_dictionary'])
-                    
-                    with st.expander("📝 Manuale Grammatica Latina"):
-                        if current_tags['latin_grammar_manual']:
-                            st.markdown(current_tags['latin_grammar_manual'])
-                    
-                    with st.expander("📘 Manuale Grammatica Italiana"):
-                        if current_tags['italian_grammar_manual']:
-                            st.markdown(current_tags['italian_grammar_manual'])
-                    
+                        if current_tags['analisi']: # Cambiato da 'analysis' a 'analisi'
+                            st.markdown(current_tags['analisi'])
+
             except Exception as e:
                 st.error(f"Errore durante la traduzione: {str(e)}")
-        else:
-            st.error("Inserisci un testo da tradurre e verifica la tua API Key")
+    else:
+        st.error("Inserisci un testo da tradurre e verifica la tua API Key")
 
 def load_system_prompt():
     default_prompt = """You are a Latin to Italian translator with expertise in both languages' grammar and vocabulary. Your task is to translate Latin text into Italian, explain translation decisions, and analyze Latin grammar.

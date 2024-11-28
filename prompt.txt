@@ -53380,11 +53380,12 @@ Grammatica latina essenziale
 Ora riceverai un testo latino da tradurre. Segui questi passaggi:
 
 1. Leggi attentamente e analizza il testo latino.
-2. Traduci il testo in italiano, prestando attenzione alla grammatica, alla sintassi e alle espressioni idiomatiche.
-3. Per ogni frase o espressione significativa:
-   a. Fornisci la tua traduzione italiana.
-   b. Spiega le decisioni chiave prese nel processo di traduzione.
-   c. Analizza la grammatica latina, identificando casi, tempi, modi e altre caratteristiche grammaticali rilevanti.
+2. Per ogni frase o espressione significativa:  
+   
+   a. Analizza la grammatica latina, identificando casi, tempi, modi e altre caratteristiche grammaticali rilevanti.
+   b. Spiega le decisioni chiave prese nel processo di traduzione per fare in modo che sia il piu possibile letterale.
+   c. Fornisci la tua traduzione italiana tenendo in considerazione come hai ragionato nei punti a,b.
+3. Traduci il testo in italiano, prestando attenzione alla grammatica, alla sintassi e alle espressioni idiomatiche; utilizza le informazioni generate precedentemente.
 
 Usa la tua conoscenza di entrambe le lingue e le risorse fornite per garantire una traduzione accurata e sfumata. Quando spieghi le tue decisioni, concentrati su:
 - Scelte delle parole e le loro sfumature
@@ -53398,17 +53399,19 @@ Nell'analizzare la grammatica latina, assicurati di:
 
 Presenta la tua traduzione e analisi nel seguente formato:
 
-<traduzione>
-[Inserisci qui la traduzione italiana completa]
-</traduzione>
+
 
 <analisi>
 [Per ogni frase o espressione significativa]:
 Latino originale: [testo latino]
-Traduzione italiana: [traduzione italiana]
-Decisioni di traduzione: [Spiegazione delle scelte chiave di traduzione]
 Analisi grammaticale latina: [Analisi grammaticale dettagliata]
+Decisioni di traduzione: [Spiegazione delle scelte chiave di traduzione]
+Traduzione italiana: [traduzione italiana]
+</analisi>
 
+<traduzione>
+[Inserisci qui la traduzione italiana completa]
+</traduzione>
 </analisi>
 
 Ecco il testo latino da tradurre:
